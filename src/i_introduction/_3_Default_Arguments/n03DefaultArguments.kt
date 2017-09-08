@@ -2,6 +2,7 @@ package i_introduction._3_Default_Arguments
 
 import util.TODO
 import util.doc2
+import java.lang.Character.toUpperCase
 
 fun todoTask3(): Nothing = TODO(
     """
@@ -14,12 +15,20 @@ fun todoTask3(): Nothing = TODO(
     documentation = doc2(),
     references = { name: String -> JavaCode3().foo(name); foo(name) })
 
-fun foo(name: String): String = todoTask3()
+fun foo(name: String, toUpperCase: Boolean = false, number: Int = 42): String {
+    var string_part = ""
+    if (toUpperCase) {
+        string_part = name.toUpperCase()
+    } else {
+        string_part = name
+    }
+    return (string_part + number.toString())
+}
 
 fun task3(): String {
-    todoTask3()
-//    return (foo("a") +
-//            foo("b", number = 1) +
-//            foo("c", toUpperCase = true) +
-//            foo(name = "d", number = 2, toUpperCase = true))
+//    todoTask3()
+    return (foo("a") +
+            foo("b", number = 1) +
+            foo("c", toUpperCase = true) +
+            foo(name = "d", number = 2, toUpperCase = true))
 }
