@@ -4,7 +4,7 @@ import util.TODO
 import util.doc8
 import kotlin.coroutines.experimental.EmptyCoroutineContext.plus
 
-// 'sealed' modifier restricts the type hierarchy:
+// 'sealed' modifier restricts the type hierarchy
 // all the subclasses must be declared in the same file
 sealed class Expr
 class Num(val value: Int) : Expr()
@@ -12,8 +12,8 @@ class Sum(val left: Expr, val right: Expr) : Expr()
 
 fun eval(e: Expr): Int =
         when (e) {
-             is Num -> e.value as Int
-            is Sum -> e.left + e.right
+            is Num -> e.value
+            is Sum -> eval(e.left) + eval(e.right)
         }
 
 fun todoTask8(expr: Expr): Nothing = TODO(
