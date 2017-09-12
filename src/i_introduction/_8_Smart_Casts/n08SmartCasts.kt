@@ -2,7 +2,7 @@ package i_introduction._8_Smart_Casts
 
 import util.TODO
 import util.doc8
-import kotlin.coroutines.experimental.EmptyCoroutineContext.plus
+// import kotlin.coroutines.experimental.EmptyCoroutineContext.plus
 
 // 'sealed' modifier restricts the type hierarchy
 // all the subclasses must be declared in the same file
